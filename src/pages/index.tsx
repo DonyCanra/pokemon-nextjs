@@ -38,7 +38,10 @@ export default function Home() {
         const updatedItem: Partial<PokemonData> = {};
         for (const key in item) {
           if (Object.prototype.hasOwnProperty.call(item, key)) {
-            updatedItem[convertToPascalCase(key)] = item[key];
+            const value = item[key];
+            if (value !== undefined && value !== null) {
+              updatedItem[convertToPascalCase(key)] = value;
+            }
           }
         }
         return updatedItem as PokemonData;
@@ -99,11 +102,7 @@ export default function Home() {
 }
 
 function getCardClassName(poke: PokemonData) {
-  if (
-    poke.pokemonTypeId.includes("poison") ||
-    poke.pokemonTypeId.includes("grass") ||
-    poke.pokemonTypeId.includes("bug")
-  ) {
+  if (poke.pokemonTypeId.includes("poison") || poke.pokemonTypeId.includes("grass") || poke.pokemonTypeId.includes("bug")) {
     return "card overflow-hidden dash1-card border-0 dash2";
   } else if (poke.pokemonTypeId.includes("fire") || poke.pokemonTypeId.includes("electric")) {
     return "card overflow-hidden dash1-card border-0 dash3";
