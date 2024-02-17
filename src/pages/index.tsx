@@ -1,26 +1,56 @@
 import React, { useEffect, useState } from "react";
 
-export default function Home() {
-  const [pokemon, setPokemon] = useState([]);
-  const [currentLimit, setCurrentLimit] = useState(12);
+interface PokemonData {
+  zukanId: string;
+  zukanSubId: number;
+  pokemonName: string;
+  pokemonSubName: string;
+  weight: number;
+  height: number;
+  fileName: string;
+  pokemonTypeId: string;
+  pokemonTypeName: string;
+}
 
-  const fetchPokemon = async (limit: any) => {
+interface PokemonResponse {
+  status: boolean;
+  error: any;
+  data: PokemonData[];
+  meta: {
+    limit: string;
+    page: string;
+  };
+}
+
+export default function Home() {
+  const [pokemon, setPokemon] = useState<PokemonData[]>([]);
+  const [currentLimit, setCurrentLimit] = useState<number>(12);
+
+  useEffect(() => {
+    fetchPokemon(currentLimit);
+  }, [currentLimit]);
+
+  const fetchPokemon = async (limit: number) => {
     try {
       const response = await fetch(`https://pokemon.tipsngoding.com?limit=${limit}`);
-      const data = await response.json();
-      setPokemon(data.data);
+      const data: PokemonResponse = await response.json();
+      const updatedData = data.data.map((item: PokemonData) => {
+        const updatedItem: Partial<PokemonData> = {};
+        for (const key in item) {
+          if (Object.prototype.hasOwnProperty.call(item, key)) {
+            updatedItem[convertToPascalCase(key)] = item[key];
+          }
+        }
+        return updatedItem as PokemonData;
+      });
+      setPokemon(updatedData);
     } catch (error) {
       console.error("Error fetching Pokemon:", error);
     }
   };
 
-  useEffect(() => {
-    // console.log("Fetching page:", currentLimit);
-    fetchPokemon(currentLimit);
-  }, [currentLimit]);
-
   const handleLoadMore = () => {
-    setCurrentLimit(currentLimit + 20);
+    setCurrentLimit((prevLimit) => prevLimit + 20);
   };
 
   return (
@@ -39,8 +69,8 @@ export default function Home() {
                 <div className="row">
                   <div className="col-md-6 col-sm-6 col-6">
                     <div className="">
-                      <span className="fs-14 font-weight-normal">{poke.pokemon_name}</span>
-                      <h2 className="mb-2 number-font carn1 font-weight-bold">{poke.zukan_id}</h2>
+                      <span className="fs-14 font-weight-normal">{poke.pokemonName}</span>
+                      <h2 className="mb-2 number-font carn1 font-weight-bold">{poke.zukanId}</h2>
                       <span className="">
                         <i className="fe fe-arrow-down-circle"></i>
                         15%<span className="ms-1 fs-11">Loss This Attack</span>
@@ -49,7 +79,7 @@ export default function Home() {
                   </div>
                   <div className="col-md-6 col-sm-6 col-6 my-auto mx-auto">
                     <div className="mx-auto text-right">
-                      <img style={{ position: "relative" }} src={poke.file_name} alt={poke.pokemon_name} />
+                      <img style={{ position: "relative" }} src={poke.fileName} alt={poke.pokemonName} />
                     </div>
                   </div>
                 </div>
@@ -68,18 +98,26 @@ export default function Home() {
   );
 }
 
-function getCardClassName(poke: any) {
-  if (poke.pokemon_type_id.includes("poison") || poke.pokemon_type_id.includes("grass") || poke.pokemon_type_id.includes("bug")) {
+function getCardClassName(poke: PokemonData) {
+  if (
+    poke.pokemonTypeId.includes("poison") ||
+    poke.pokemonTypeId.includes("grass") ||
+    poke.pokemonTypeId.includes("bug")
+  ) {
     return "card overflow-hidden dash1-card border-0 dash2";
-  } else if (poke.pokemon_type_id.includes("fire") || poke.pokemon_type_id.includes("electric")) {
+  } else if (poke.pokemonTypeId.includes("fire") || poke.pokemonTypeId.includes("electric")) {
     return "card overflow-hidden dash1-card border-0 dash3";
-  } else if (poke.pokemon_type_id.includes("water") || poke.pokemon_type_id.includes("ice")) {
+  } else if (poke.pokemonTypeId.includes("water") || poke.pokemonTypeId.includes("ice")) {
     return "card overflow-hidden dash1-card border-0 dash4";
-  } else if (poke.pokemon_type_id.includes("dark")) {
+  } else if (poke.pokemonTypeId.includes("dark")) {
     return "card overflow-hidden dash1-card border-0 dash1";
-  } else if (poke.pokemon_type_id.includes("rock") || poke.pokemon_type_id.includes("ground")) {
+  } else if (poke.pokemonTypeId.includes("rock") || poke.pokemonTypeId.includes("ground")) {
     return "card overflow-hidden dash1-card border-0 bg-yellow";
   } else {
     return "card overflow-hidden dash1-card border-0 bg-white";
   }
+}
+
+function convertToPascalCase(key: string): string {
+  return key.replace(/_([a-z])/g, (_, group1) => group1.toUpperCase());
 }
