@@ -35,13 +35,11 @@ export default function Home() {
       const response = await fetch(`https://pokemon.tipsngoding.com?limit=${limit}`);
       const data: PokemonResponse = await response.json();
       const updatedData = data.data.map((item: PokemonData) => {
-        const updatedItem: Partial<PokemonData> = {};
+        const updatedItem: any = {}; // Gunakan Partial<PokemonData> di sini
         for (const key in item) {
           if (Object.prototype.hasOwnProperty.call(item, key)) {
-            const value = item[key];
-            if (value !== undefined && value !== null) {
-              updatedItem[convertToPascalCase(key)] = value;
-            }
+            const typedKey = key as keyof PokemonData;
+            updatedItem[convertToPascalCase(typedKey)] = item[typedKey];
           }
         }
         return updatedItem as PokemonData;
