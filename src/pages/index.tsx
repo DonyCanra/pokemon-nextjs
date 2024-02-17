@@ -6,7 +6,7 @@ export default function Home() {
 
   const fetchPokemon = async (limit: any) => {
     try {
-      const response = await fetch(`http://localhost:5321?limit=${limit}`);
+      const response = await fetch(`https://pokemon.tipsngoding.com?limit=${limit}`);
       const data = await response.json();
       setPokemon(data.data);
     } catch (error) {
@@ -15,7 +15,7 @@ export default function Home() {
   };
 
   useEffect(() => {
-    console.log("Fetching page:", currentLimit);
+    // console.log("Fetching page:", currentLimit);
     fetchPokemon(currentLimit);
   }, [currentLimit]);
 
@@ -75,9 +75,11 @@ function getCardClassName(poke: any) {
     return "card overflow-hidden dash1-card border-0 dash3";
   } else if (poke.pokemon_type_id.includes("water") || poke.pokemon_type_id.includes("ice")) {
     return "card overflow-hidden dash1-card border-0 dash4";
-  } else if (poke.pokemon_type_id.includes("grass")) {
+  } else if (poke.pokemon_type_id.includes("dark")) {
     return "card overflow-hidden dash1-card border-0 dash1";
+  } else if (poke.pokemon_type_id.includes("rock") || poke.pokemon_type_id.includes("ground")) {
+    return "card overflow-hidden dash1-card border-0 bg-yellow";
   } else {
-    return "card overflow-hidden dash1-card border-0 dash5";
+    return "card overflow-hidden dash1-card border-0 bg-white";
   }
 }
