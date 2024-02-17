@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Footer() {
   return (
     <>
@@ -6,7 +8,7 @@ export default function Footer() {
           <div className="row align-items-center flex-row-reverse">
             <div className="col-md-12 col-sm-12 text-center">
               <p>
-              Copyright © 2023 <a href="javascript:void(0);">Pokemon</a>. Designed by <a href="javascript:void(0);"> DonyCanra </a> All rights reserved
+              Copyright © 2023 <Link href="/">Pokemon</Link>. Designed by <Link href="/"> DonyCanra </Link> All rights reserved
               </p>
             </div>
           </div>

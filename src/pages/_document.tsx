@@ -1,7 +1,7 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
 
 class MyDocument extends Document {
-  static async getInitialProps(ctx:any) {
+  static async getInitialProps(ctx: any) {
     const initialProps = await Document.getInitialProps(ctx);
     return { ...initialProps };
   }
@@ -65,69 +65,69 @@ class MyDocument extends Document {
           {/* <script src="/js/jquery.min.js"></script>
 
           {/* Bootstrap5 js */}
-          <script src="/plugins/bootstrap/popper.min.js"></script>
-          <script src="/plugins/bootstrap/js/bootstrap.min.js"></script>
+          {/* <script src="/plugins/bootstrap/popper.min.js"></script> */}
+          {/* <script src="/plugins/bootstrap/js/bootstrap.min.js"></script> */}
 
           {/* Othercharts js */}
-          <script src="/plugins/othercharts/jquery.sparkline.min.js"></script>
+          {/* <script src="/plugins/othercharts/jquery.sparkline.min.js"></script> */}
 
           {/* Circle-progress js */}
-          <script src="/js/circle-progress.min.js"></script>
+          {/* <script src="/js/circle-progress.min.js"></script> */}
 
           {/* Jquery-rating js */}
-          <script src="/plugins/rating/jquery.rating-stars.js"></script>
+          {/* <script src="/plugins/rating/jquery.rating-stars.js"></script> */}
 
           {/* Horizontal-menu js */}
-          <script src="/plugins/horizontal-menu/horizontal-menu.js"></script>
+          {/* <script src="/plugins/horizontal-menu/horizontal-menu.js"></script> */}
 
           {/* Sticky js */}
-          <script src="/js/stiky.js"></script>
+          {/* <script src="/js/stiky.js"></script> */}
 
           {/* P-scroll js */}
-          <script src="/plugins/p-scrollbar/p-scrollbar.js"></script>
-          <script src="/plugins/p-scrollbar/p-scroll.js"></script>
+          {/* <script src="/plugins/p-scrollbar/p-scrollbar.js"></script> */}
+          {/* <script src="/plugins/p-scrollbar/p-scroll.js"></script> */}
 
           {/* INTERNAL Flot Charts js */}
-          <script src="/plugins/flot/jquery.flot.js"></script>
-          <script src="/plugins/flot/jquery.flot.fillbetween.js"></script>
-          <script src="/plugins/flot/jquery.flot.pie.js"></script>
-          <script src="/js/dashboard.sampledata.js"></script>
-          <script src="/js/chart.flot.sampledata.js"></script>
+          {/* <script src="/plugins/flot/jquery.flot.js"></script> */}
+          {/* <script src="/plugins/flot/jquery.flot.fillbetween.js"></script> */}
+          {/* <script src="/plugins/flot/jquery.flot.pie.js"></script> */}
+          {/* <script src="/js/dashboard.sampledata.js"></script> */}
+          {/* <script src="/js/chart.flot.sampledata.js"></script> */}
 
           {/* INTERNAL Chart js */}
-          <script src="/plugins/chart/chart.bundle.js"></script>
-          <script src="/plugins/chart/utils.js"></script>
+          {/* <script src="/plugins/chart/chart.bundle.js"></script> */}
+          {/* <script src="/plugins/chart/utils.js"></script> */}
 
           {/* INTERNAL Apexchart js */}
-          <script src="/js/apexcharts.js"></script>
+          {/* <script src="/js/apexcharts.js"></script> */}
 
           {/* INTERNAL Moment js */}
-          <script src="/plugins/moment/moment.js"></script>
+          {/* <script src="/plugins/moment/moment.js"></script> */}
 
           {/* INTERNAL Index js */}
-          <script src="/js/index1.js"></script>
+          {/* <script src="/js/index1.js"></script> */}
 
           {/* INTERNAL Data tables */}
-          <script src="/plugins/datatables/DataTables/js/jquery.dataTables.js"></script>
-          <script src="/plugins/datatables/DataTables/js/dataTables.bootstrap5.js"></script>
-          <script src="/plugins/datatables/Responsive/js/dataTables.responsive.min.js"></script>
-          <script src="/plugins/datatables/Responsive/js/responsive.bootstrap5.min.js"></script>
+          {/* <script src="/plugins/datatables/DataTables/js/jquery.dataTables.js"></script> */}
+          {/* <script src="/plugins/datatables/DataTables/js/dataTables.bootstrap5.js"></script> */}
+          {/* <script src="/plugins/datatables/Responsive/js/dataTables.responsive.min.js"></script> */}
+          {/* <script src="/plugins/datatables/Responsive/js/responsive.bootstrap5.min.js"></script> */}
 
           {/* INTERNAL Select2 js */}
-          <script src="/plugins/select2/select2.full.min.js"></script>
-          <script src="/js/select2.js"></script>
+          {/* <script src="/plugins/select2/select2.full.min.js"></script> */}
+          {/* <script src="/js/select2.js"></script> */}
 
           {/* Simplebar JS */}
-          <script src="/plugins/simplebar/js/simplebar.min.js"></script>
+          {/* <script src="/plugins/simplebar/js/simplebar.min.js"></script> */}
 
           {/* Rounded bar chart js */}
-          <script src="/js/rounded-barchart.js"></script>
+          {/* <script src="/js/rounded-barchart.js"></script> */}
 
           {/* Custom js */}
-          <script src="/js/custom.js"></script>
+          {/* <script src="/js/custom.js"></script> */}
 
           {/* Switcher js */}
-          <script src="/switcher/js/switcher.js"></script>
+          {/* <script src="/switcher/js/switcher.js"></script> */}
         </body>
       </Html>
     );
