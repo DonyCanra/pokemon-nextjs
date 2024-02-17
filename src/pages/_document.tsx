@@ -13,9 +13,9 @@ class MyDocument extends Document {
           {/* Meta data */}
           <meta charSet="UTF-8" />
           <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0" />
-          <meta content="Azea - Admin Panel HTML template" name="description" />
-          <meta content="Spruko Private Limited" name="author" />
-          <meta name="keywords" content="admin, admin template, dashboard, admin dashboard, responsive, bootstrap, bootstrap 5, admin theme, admin themes, bootstrap admin template, scss, ui, crm, modern, flat" />
+          <meta content="Pokemon - list pokemon" name="description" />
+          <meta content="Pokemon list" name="author" />
+          <meta name="keywords" content="pokemon" />
 
           {/* Favicon */}
           <link rel="icon" href="/images/brand/logo.png" type="image/x-icon" />
