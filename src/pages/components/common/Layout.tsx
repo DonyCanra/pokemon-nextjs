@@ -12,7 +12,9 @@ export default function Layout({ children }: { children: ReactNode }) {
           {/* <!--/app header--> */}
 
           {/* <!-- App-Content --> */}
-          <div className="hor-content main-content">
+          <div className="hor-content main-content" style={{
+            marginBottom: "20px"
+          }}>
             <div className="container">{children}</div>
           </div>
           {/* <!-- End app-content--> */}
@@ -23,7 +25,9 @@ export default function Layout({ children }: { children: ReactNode }) {
         </div>
       </div>
       {/* <!-- Back to top --> */}
-		<a href="#top" id="back-to-top"><i className="fe fe-chevron-up"></i></a>
+      <a href="#top" id="back-to-top">
+        <i className="fe fe-chevron-up"></i>
+      </a>
     </>
   );
 }

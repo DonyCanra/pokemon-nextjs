@@ -18,7 +18,7 @@ class MyDocument extends Document {
           <meta name="keywords" content="admin, admin template, dashboard, admin dashboard, responsive, bootstrap, bootstrap 5, admin theme, admin themes, bootstrap admin template, scss, ui, crm, modern, flat" />
 
           {/* Favicon */}
-          <link rel="icon" href="/images/brand/favicon.ico" type="image/x-icon" />
+          <link rel="icon" href="/images/brand/logo.png" type="image/x-icon" />
 
           {/* Bootstrap css */}
           <link href="/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
@@ -127,7 +127,7 @@ class MyDocument extends Document {
           <script src="/js/custom.js"></script>
 
           {/* Switcher js */}
-          <script src="/switcher/js/switcher.js"></script> */}
+          <script src="/switcher/js/switcher.js"></script>
         </body>
       </Html>
     );
