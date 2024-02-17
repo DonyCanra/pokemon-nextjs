@@ -16,6 +16,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/stores/actions/thunks.js", "src/stores/actions/actionCreator.js", "src/stores/actions/actionTypes.js", "src/stores/index.js", "src/stores/reducers/pokemonReducer.js"],
   "exclude": ["node_modules"]
 }

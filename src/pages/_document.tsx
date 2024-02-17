@@ -1,7 +1,7 @@
-import Document, { Html, Head, Main, NextScript, DocumentContext } from 'next/document';
+import Document, { Html, Head, Main, NextScript } from "next/document";
 
 class MyDocument extends Document {
-  static async getInitialProps(ctx: DocumentContext) {
+  static async getInitialProps(ctx:any) {
     const initialProps = await Document.getInitialProps(ctx);
     return { ...initialProps };
   }
@@ -9,19 +9,16 @@ class MyDocument extends Document {
   render() {
     return (
       <Html lang="en">
-        <head>
+        <Head>
           {/* Meta data */}
           <meta charSet="UTF-8" />
-          <meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=0' />
+          <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0" />
           <meta content="Azea - Admin Panel HTML template" name="description" />
           <meta content="Spruko Private Limited" name="author" />
           <meta name="keywords" content="admin, admin template, dashboard, admin dashboard, responsive, bootstrap, bootstrap 5, admin theme, admin themes, bootstrap admin template, scss, ui, crm, modern, flat" />
 
-          {/* Title */}
-          <title>Pokemon</title>
-
           {/* Favicon */}
-          {/* <link rel="icon" href="/images/brand/favicon.ico" type="image/x-icon" /> */}
+          <link rel="icon" href="/images/brand/favicon.ico" type="image/x-icon" />
 
           {/* Bootstrap css */}
           <link href="/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
@@ -59,13 +56,13 @@ class MyDocument extends Document {
           {/* INTERNAL Switcher css */}
           <link href="/switcher/css/switcher.css" rel="stylesheet" />
           <link href="/switcher/demo.css" rel="stylesheet" />
-        </head>
+        </Head>
         <body className="app">
           <Main />
           <NextScript />
-
+          {/* Your script tags */}
           {/* Jquery js */}
-          <script src="/js/jquery.min.js"></script>
+          {/* <script src="/js/jquery.min.js"></script>
 
           {/* Bootstrap5 js */}
           <script src="/plugins/bootstrap/popper.min.js"></script>
@@ -87,8 +84,8 @@ class MyDocument extends Document {
           <script src="/js/stiky.js"></script>
 
           {/* P-scroll js */}
-          {/* <script src="/plugins/p-scrollbar/p-scrollbar.js"></script> */}
-          {/* <script src="/plugins/p-scrollbar/p-scroll.js"></script> */}
+          <script src="/plugins/p-scrollbar/p-scrollbar.js"></script>
+          <script src="/plugins/p-scrollbar/p-scroll.js"></script>
 
           {/* INTERNAL Flot Charts js */}
           <script src="/plugins/flot/jquery.flot.js"></script>
@@ -130,7 +127,7 @@ class MyDocument extends Document {
           <script src="/js/custom.js"></script>
 
           {/* Switcher js */}
-          <script src="/switcher/js/switcher.js"></script>
+          <script src="/switcher/js/switcher.js"></script> */}
         </body>
       </Html>
     );
