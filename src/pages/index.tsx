@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React, { useEffect, useState } from "react";
 
 interface PokemonData {
@@ -70,7 +71,7 @@ export default function Home() {
                 <div className="row">
                   <div className="col-md-6 col-sm-6 col-6">
                     <div className="">
-                      <span className="fs-14 font-weight-normal">{poke.pokemonName}</span>
+                      <span className="fs-13 font-weight-normal">{poke.pokemonName}</span>
                       <h2 className="mb-2 number-font carn1 font-weight-bold">{poke.zukanId}</h2>
                       <span className="">
                         <i className="fe fe-arrow-down-circle"></i>
@@ -80,7 +81,9 @@ export default function Home() {
                   </div>
                   <div className="col-md-6 col-sm-6 col-6 my-auto mx-auto">
                     <div className="mx-auto text-right">
-                      <img style={{ position: "relative" }} src={poke.fileName} alt={poke.pokemonName} />
+                    <div style={{ position: "relative" }}>
+                        <Image src={poke.fileName} alt={poke.pokemonName} width={100} height={100} />
+                      </div>
                     </div>
                   </div>
                 </div>

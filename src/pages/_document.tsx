@@ -21,7 +21,7 @@ class MyDocument extends Document {
           <link rel="icon" href="/images/brand/logo.png" type="image/x-icon" />
 
           {/* Bootstrap css */}
-          <link href="/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+          <link href="/plugins/bootstrap/css/bootstrap.min.css" />
 
           {/* Style css */}
           <link href="/css/style.css" rel="stylesheet" />

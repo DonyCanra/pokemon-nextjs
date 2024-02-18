@@ -10,15 +10,15 @@ export default function Navbar() {
             <span></span>
           </a>
           <Link className="header-brand" href="/">
-            <Image src="/images/brand/logo.png" className="header-brand-img desktop-lgo" alt="Azea logo" width={100} height={50} />
-            <Image src="/images/brand/logo.png" className="header-brand-img dark-logo" alt="Azea logo" width={100} height={50} />
-            <Image src="/images/brand/logo.png" className="header-brand-img mobile-logo" alt="Azea logo" width={100} height={50} />
-            <Image src="/images/brand/logo.png" className="header-brand-img darkmobile-logo" alt="Azea logo" width={100} height={50} />
+            <Image src="/images/brand/logo.png" className="header-brand-img desktop-lgo" alt="Pokemon logo" width={100} height={50} />
+            <Image src="/images/brand/logo.png" className="header-brand-img dark-logo" alt="Pokemon logo" width={100} height={50} />
+            <Image src="/images/brand/logo.png" className="header-brand-img mobile-logo" alt="Pokemon logo" width={100} height={50} />
+            <Image src="/images/brand/logo.png" className="header-brand-img darkmobile-logo" alt="Pokemon logo" width={100} height={50} />
           </Link>
           <div className="mt-1 d-md-block d-none">
             <form className="form-inline">
               <div className="search-element">
-                <input type="search" className="form-control header-search mobile-view-search" placeholder="Search…" aria-label="Search" tab-index="1" />
+                <input type="search" className="form-control header-search mobile-view-search" placeholder="Search pokemon" aria-label="Search" tab-index="1" />
                 <button className="btn btn-primary-color" type="submit">
                   <svg xmlns="http://www.w3.org/2000/svg" className="header-icon search-icon" width="24" height="24" viewBox="0 0 24 24">
                     <path d="M10 18a7.952 7.952 0 0 0 4.897-1.688l4.396 4.396 1.414-1.414-4.396-4.396A7.952 7.952 0 0 0 18 10c0-4.411-3.589-8-8-8s-8 3.589-8 8 3.589 8 8 8zm0-14c3.309 0 6 2.691 6 6s-2.691 6-6 6-6-2.691-6-6 2.691-6 6-6z" />
@@ -44,11 +44,11 @@ export default function Navbar() {
               <div className="collapse navbar-collapse" id="navbarSupportedContent-4">
                 <div className="d-flex order-lg-2">
                   <div className="dropdown d-lg-none d-flex responsive-search">
-                    <a href="javascript:void(0);" className="nav-link icon" data-bs-toggle="dropdown">
+                    <Link href="/" className="nav-link icon" data-bs-toggle="dropdown">
                       <svg xmlns="http://www.w3.org/2000/svg" className="header-icon search-icon" width="24" height="24" viewBox="0 0 24 24">
                         <path d="M10 18a7.952 7.952 0 0 0 4.897-1.688l4.396 4.396 1.414-1.414-4.396-4.396A7.952 7.952 0 0 0 18 10c0-4.411-3.589-8-8-8s-8 3.589-8 8 3.589 8 8 8zm0-14c3.309 0 6 2.691 6 6s-2.691 6-6 6-6-2.691-6-6 2.691-6 6-6z" />
                       </svg>
-                    </a>
+                    </Link>
                     <div className="dropdown-menu header-search dropdown-menu-start">
                       <div className="input-group w-100 p-2">
                         <input type="text" className="form-control" placeholder="Search...." />
@@ -62,18 +62,18 @@ export default function Navbar() {
                   </div>
 
                   <div className="dropdown profile-dropdown d-flex">
-                    <a href="javascript:void(0);" className="nav-link pe-0 leading-none" data-bs-toggle="dropdown">
+                    <Link href="/" className="nav-link pe-0 leading-none" data-bs-toggle="dropdown">
                       <span className="header-avatar1">
-                        <img src="/images/users/2.jpg" alt="img" className="avatar avatar-md brround" />
+                        <Image src="/images/users/2.jpg" alt="img" className="avatar avatar-md brround" width={100} height={50} />
                       </span>
-                    </a>
+                    </Link>
                     <div className="dropdown-menu dropdown-menu-end dropdown-menu-arrow animated">
                       <div className="text-center">
                         <div className="text-center user pb-0 font-weight-bold">Dony Canra</div>
                         <span className="text-center user-semi-title">Web Designer</span>
                         <div className="dropdown-divider"></div>
                       </div>
-                      <a className="dropdown-item d-flex" href="login-1.html">
+                      <Link className="dropdown-item d-flex" href="/">
                         <svg className="header-icon me-2" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24" viewBox="0 0 24 24" width="24">
                           <g>
                             <rect fill="none" height="24" width="24" />
@@ -83,7 +83,7 @@ export default function Navbar() {
                           </g>
                         </svg>
                         <div className="fs-13">Sign Out</div>
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>
