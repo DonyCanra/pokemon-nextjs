@@ -1,5 +1,5 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
-import Meta from "./components/MyMeta";
+import Meta from "./components/MetaComponent";
 import LinkComponent from "./components/LinkComponent";
 import ScriptComponent from "./components/ScriptComponent";
 
