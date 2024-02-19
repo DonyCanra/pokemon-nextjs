@@ -1,4 +1,7 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
+import Meta from "./components/MyMeta";
+import LinkComponent from "./components/LinkComponent";
+import ScriptComponent from "./components/ScriptComponent";
 
 class MyDocument extends Document {
   static async getInitialProps(ctx: any) {
@@ -10,124 +13,115 @@ class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
-          {/* Meta data */}
-          <meta charSet="UTF-8" />
-          <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0" />
-          <meta content="Pokemon - list pokemon" name="description" />
-          <meta content="Pokemon list" name="author" />
-          <meta name="keywords" content="pokemon" />
+          {/* Import Meta component */}
+          <Meta />
 
           {/* Favicon */}
           <link rel="icon" href="/images/brand/logo.png" type="image/x-icon" />
 
           {/* Bootstrap css */}
-          <link href="/plugins/bootstrap/css/bootstrap.min.css" />
+          <LinkComponent href="/plugins/bootstrap/css/bootstrap.min.css" />
 
           {/* Style css */}
-          <link href="/css/style.css" rel="stylesheet" />
-          <link href="/css/dark.css" rel="stylesheet" />
-          <link href="/css/skin-modes.css" rel="stylesheet" />
+          <LinkComponent href="/css/style.css" />
+          <LinkComponent href="/css/dark.css" />
+          <LinkComponent href="/css/skin-modes.css" />
 
           {/* Animate css */}
-          <link href="/css/animated.css" rel="stylesheet" />
+          <LinkComponent href="/css/animated.css" />
 
           {/* P-scroll bar css */}
-          <link href="/plugins/p-scrollbar/p-scrollbar.css" rel="stylesheet" />
+          <LinkComponent href="/plugins/p-scrollbar/p-scrollbar.css" />
 
           {/* Icons css */}
-          <link href="/css/icons.css" rel="stylesheet" />
+          <LinkComponent href="/css/icons.css" />
 
           {/* Simplebar css */}
-          <link rel="stylesheet" href="/plugins/simplebar/css/simplebar.css" />
+          <LinkComponent href="/plugins/simplebar/css/simplebar.css" />
 
           {/* INTERNAL Morris Charts css */}
-          <link href="/plugins/morris/morris.css" rel="stylesheet" />
+          <LinkComponent href="/plugins/morris/morris.css" />
 
           {/* INTERNAL Select2 css */}
-          <link href="/plugins/select2/select2.min.css" rel="stylesheet" />
+          <LinkComponent href="/plugins/select2/select2.min.css" />
 
           {/* Data table css */}
-          <link href="/plugins/datatables/DataTables/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
-          <link href="/plugins/datatables/Responsive/css/responsive.bootstrap4.min.css" rel="stylesheet" />
+          <LinkComponent href="/plugins/datatables/DataTables/css/dataTables.bootstrap4.min.css" />
+          <LinkComponent href="/plugins/datatables/Responsive/css/responsive.bootstrap4.min.css" />
 
           {/* Color Skin css */}
-          <link id="theme" href="/colors/color1.css" rel="stylesheet" type="text/css" />
+          <LinkComponent href="/colors/color1.css" />
 
           {/* INTERNAL Switcher css */}
-          <link href="/switcher/css/switcher.css" rel="stylesheet" />
-          <link href="/switcher/demo.css" rel="stylesheet" />
+          <LinkComponent href="/switcher/css/switcher.css" />
+          <LinkComponent href="/switcher/demo.css" />
         </Head>
         <body className="app">
           <Main />
           <NextScript />
+
           {/* Your script tags */}
           {/* Jquery js */}
-          {/* <script src="/js/jquery.min.js"></script>
+          <ScriptComponent src="/js/jquery.min.js" />
 
           {/* Bootstrap5 js */}
-          {/* <script src="/plugins/bootstrap/popper.min.js"></script> */}
-          {/* <script src="/plugins/bootstrap/js/bootstrap.min.js"></script> */}
+          <ScriptComponent src="/plugins/bootstrap/popper.min.js" />
+          <ScriptComponent src="/plugins/bootstrap/js/bootstrap.min.js" />
 
           {/* Othercharts js */}
-          {/* <script src="/plugins/othercharts/jquery.sparkline.min.js"></script> */}
+          <ScriptComponent src="/plugins/othercharts/jquery.sparkline.min.js" />
 
           {/* Circle-progress js */}
-          {/* <script src="/js/circle-progress.min.js"></script> */}
+          <ScriptComponent src="/js/circle-progress.min.js" />
 
           {/* Jquery-rating js */}
-          {/* <script src="/plugins/rating/jquery.rating-stars.js"></script> */}
+          <ScriptComponent src="/plugins/rating/jquery.rating-stars.js" />
 
           {/* Horizontal-menu js */}
-          {/* <script src="/plugins/horizontal-menu/horizontal-menu.js"></script> */}
+          <ScriptComponent src="/plugins/horizontal-menu/horizontal-menu.js" />
 
           {/* Sticky js */}
-          {/* <script src="/js/stiky.js"></script> */}
+          {/* <ScriptComponent src="/js/stiky.js" /> */}
 
           {/* P-scroll js */}
-          {/* <script src="/plugins/p-scrollbar/p-scrollbar.js"></script> */}
-          {/* <script src="/plugins/p-scrollbar/p-scroll.js"></script> */}
+          <ScriptComponent src="/plugins/p-scrollbar/p-scrollbar.js" />
+          <ScriptComponent src="/plugins/p-scrollbar/p-scroll.js" />
 
           {/* INTERNAL Flot Charts js */}
-          {/* <script src="/plugins/flot/jquery.flot.js"></script> */}
-          {/* <script src="/plugins/flot/jquery.flot.fillbetween.js"></script> */}
-          {/* <script src="/plugins/flot/jquery.flot.pie.js"></script> */}
-          {/* <script src="/js/dashboard.sampledata.js"></script> */}
-          {/* <script src="/js/chart.flot.sampledata.js"></script> */}
+          <ScriptComponent src="/plugins/flot/jquery.flot.js" />
+          <ScriptComponent src="/plugins/flot/jquery.flot.fillbetween.js" />
+          <ScriptComponent src="/plugins/flot/jquery.flot.pie.js" />
+          <ScriptComponent src="/js/dashboard.sampledata.js" />
+          <ScriptComponent src="/js/chart.flot.sampledata.js" />
 
           {/* INTERNAL Chart js */}
-          {/* <script src="/plugins/chart/chart.bundle.js"></script> */}
-          {/* <script src="/plugins/chart/utils.js"></script> */}
+          <ScriptComponent src="/plugins/chart/chart.bundle.js" />
+          <ScriptComponent src="/plugins/chart/utils.js" />
 
           {/* INTERNAL Apexchart js */}
-          {/* <script src="/js/apexcharts.js"></script> */}
+          <ScriptComponent src="/js/apexcharts.js" />
 
           {/* INTERNAL Moment js */}
-          {/* <script src="/plugins/moment/moment.js"></script> */}
+          <ScriptComponent src="/plugins/moment/moment.js" />
 
           {/* INTERNAL Index js */}
-          {/* <script src="/js/index1.js"></script> */}
-
-          {/* INTERNAL Data tables */}
-          {/* <script src="/plugins/datatables/DataTables/js/jquery.dataTables.js"></script> */}
-          {/* <script src="/plugins/datatables/DataTables/js/dataTables.bootstrap5.js"></script> */}
-          {/* <script src="/plugins/datatables/Responsive/js/dataTables.responsive.min.js"></script> */}
-          {/* <script src="/plugins/datatables/Responsive/js/responsive.bootstrap5.min.js"></script> */}
+          {/* <ScriptComponent src="/js/index1.js" /> */}
 
           {/* INTERNAL Select2 js */}
-          {/* <script src="/plugins/select2/select2.full.min.js"></script> */}
-          {/* <script src="/js/select2.js"></script> */}
+          <ScriptComponent src="/plugins/select2/select2.full.min.js" />
+          <ScriptComponent src="/js/select2.js" />
 
           {/* Simplebar JS */}
-          {/* <script src="/plugins/simplebar/js/simplebar.min.js"></script> */}
+          <ScriptComponent src="/plugins/simplebar/js/simplebar.min.js" />
 
           {/* Rounded bar chart js */}
-          {/* <script src="/js/rounded-barchart.js"></script> */}
+          <ScriptComponent src="/js/rounded-barchart.js" />
 
           {/* Custom js */}
-          {/* <script src="/js/custom.js"></script> */}
+          <ScriptComponent src="/js/custom.js" />
 
           {/* Switcher js */}
-          {/* <script src="/switcher/js/switcher.js"></script> */}
+          <ScriptComponent src="/switcher/js/switcher.js" />
         </body>
       </Html>
     );

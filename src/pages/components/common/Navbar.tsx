@@ -62,11 +62,11 @@ export default function Navbar() {
                   </div>
 
                   <div className="dropdown profile-dropdown d-flex">
-                    <Link href="/" className="nav-link pe-0 leading-none" data-bs-toggle="dropdown">
+                    <a href="/" className="nav-link pe-0 leading-none" data-bs-toggle="dropdown">
                       <span className="header-avatar1">
                         <Image src="/images/users/2.jpg" alt="img" className="avatar avatar-md brround" width={100} height={50} />
                       </span>
-                    </Link>
+                    </a>
                     <div className="dropdown-menu dropdown-menu-end dropdown-menu-arrow animated">
                       <div className="text-center">
                         <div className="text-center user pb-0 font-weight-bold">Dony Canra</div>
