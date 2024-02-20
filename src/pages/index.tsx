@@ -1,6 +1,7 @@
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import MetaHead from "./components/MetaHead";
+import Loader from "./loaders/Loader";
 
 interface PokemonData {
   zukanId: string;
@@ -27,6 +28,7 @@ interface PokemonResponse {
 export default function Home() {
   const [pokemon, setPokemon] = useState<PokemonData[]>([]);
   const [currentLimit, setCurrentLimit] = useState<number>(12);
+  const [loading, setLoading] = useState<boolean>(false); // State untuk menangani status loading
 
   useEffect(() => {
     fetchPokemon(currentLimit);
@@ -34,6 +36,7 @@ export default function Home() {
 
   const fetchPokemon = async (limit: number) => {
     try {
+      setLoading(true); // Mengatur status loading menjadi true ketika fetch dimulai
       const response = await fetch(`https://pokemon.tipsngoding.com?limit=${limit}`);
       const data: PokemonResponse = await response.json();
       const updatedData = data.data.map((item: PokemonData) => {
@@ -47,8 +50,10 @@ export default function Home() {
         return updatedItem as PokemonData;
       });
       setPokemon(updatedData);
+      setLoading(false); // Mengatur status loading menjadi false setelah fetch selesai
     } catch (error) {
       console.error("Error fetching Pokemon:", error);
+      setLoading(false); // Mengatur status loading menjadi false jika terjadi kesalahan
     }
   };
 
@@ -58,13 +63,7 @@ export default function Home() {
 
   return (
     <>
-      <MetaHead
-        title="Home - Pokemon website"
-        description="Pokémon list telah terbuka! Cek Pokémon favoritmu!"
-        image="https://id.portal-pokemon.com/img/common/og-image.png"
-        url="https://pokemon-list-tan.vercel.app"
-      />
-
+      <MetaHead title="Home - Pokemon website" description="Pokémon list telah terbuka! Cek Pokémon favoritmu!" image="https://id.portal-pokemon.com/img/common/og-image.png" url="https://pokemon-list-tan.vercel.app" />
       <div className="page-header">
         <div className="page-leftheader">
           <h4 className="page-title mb-0 text-primary">List Pokemon</h4>
@@ -72,33 +71,37 @@ export default function Home() {
       </div>
 
       <div className="row">
-        {pokemon.map((poke, index) => (
-          <div key={index} className="col-xl-3 col-lg-6 col-md-6 col-xm-12">
-            <div key={index} className={getCardClassName(poke)}>
-              <div className="card-body">
-                <div className="row">
-                  <div className="col-md-6 col-sm-6 col-6">
-                    <div className="">
-                      <span className="fs-13 font-weight-normal">{poke.pokemonName}</span>
-                      <h2 className="mb-2 number-font carn1 font-weight-bold">{poke.zukanId}</h2>
-                      <span className="">
-                        <i className="fe fe-arrow-down-circle"></i>
-                        15%<span className="ms-1 fs-11">Loss This Attack</span>
-                      </span>
+        {loading ? (
+          <Loader /> // Tampilkan pesan loading jika status loading adalah true
+        ) : (
+          pokemon.map((poke, index) => (
+            <div key={index} className="col-xl-3 col-lg-6 col-md-6 col-xm-12">
+              <div key={index} className={getCardClassName(poke)}>
+                <div className="card-body">
+                  <div className="row">
+                    <div className="col-md-6 col-sm-6 col-6">
+                      <div className="">
+                        <span className="fs-13 font-weight-normal">{poke.pokemonName}</span>
+                        <h2 className="mb-2 number-font carn1 font-weight-bold">{poke.zukanId}</h2>
+                        <span className="">
+                          <i className="fe fe-arrow-down-circle"></i>
+                          15%<span className="ms-1 fs-11">Loss This Attack</span>
+                        </span>
+                      </div>
                     </div>
-                  </div>
-                  <div className="col-md-6 col-sm-6 col-6 my-auto mx-auto">
-                    <div className="mx-auto text-right">
-                      <div style={{ position: "relative" }}>
-                        <Image src={poke.fileName} alt={poke.pokemonName} width={100} height={100} />
+                    <div className="col-md-6 col-sm-6 col-6 my-auto mx-auto">
+                      <div className="mx-auto text-right">
+                        <div style={{ position: "relative" }}>
+                          <Image src={poke.fileName} alt={poke.pokemonName} width={100} height={100} />
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))
+        )}
       </div>
 
       <div className="text-center">

@@ -30,7 +30,6 @@ class MyDocument extends Document {
 
           {/* Style css */}
           <LinkComponent href="/css/style.css" />
-          <LinkComponent href="/css/dark.css" />
           <LinkComponent href="/css/skin-modes.css" />
 
           {/* Animate css */}
@@ -51,10 +50,6 @@ class MyDocument extends Document {
           {/* INTERNAL Select2 css */}
           <LinkComponent href="/plugins/select2/select2.min.css" />
 
-          {/* Data table css */}
-          <LinkComponent href="/plugins/datatables/DataTables/css/dataTables.bootstrap4.min.css" />
-          <LinkComponent href="/plugins/datatables/Responsive/css/responsive.bootstrap4.min.css" />
-
           {/* Color Skin css */}
           <LinkComponent href="/colors/color1.css" />
 
@@ -73,9 +68,6 @@ class MyDocument extends Document {
           {/* Bootstrap5 js */}
           <ScriptComponent src="/plugins/bootstrap/popper.min.js" />
           <ScriptComponent src="/plugins/bootstrap/js/bootstrap.min.js" />
-
-          {/* Othercharts js */}
-          <ScriptComponent src="/plugins/othercharts/jquery.sparkline.min.js" />
 
           {/* Circle-progress js */}
           <ScriptComponent src="/js/circle-progress.min.js" />
@@ -100,16 +92,6 @@ class MyDocument extends Document {
           <ScriptComponent src="/js/dashboard.sampledata.js" />
           <ScriptComponent src="/js/chart.flot.sampledata.js" />
 
-          {/* INTERNAL Chart js */}
-          <ScriptComponent src="/plugins/chart/chart.bundle.js" />
-          <ScriptComponent src="/plugins/chart/utils.js" />
-
-          {/* INTERNAL Apexchart js */}
-          <ScriptComponent src="/js/apexcharts.js" />
-
-          {/* INTERNAL Moment js */}
-          <ScriptComponent src="/plugins/moment/moment.js" />
-
           {/* INTERNAL Index js */}
           {/* <ScriptComponent src="/js/index1.js" /> */}
 
@@ -120,14 +102,10 @@ class MyDocument extends Document {
           {/* Simplebar JS */}
           <ScriptComponent src="/plugins/simplebar/js/simplebar.min.js" />
 
-          {/* Rounded bar chart js */}
-          <ScriptComponent src="/js/rounded-barchart.js" />
 
           {/* Custom js */}
           <ScriptComponent src="/js/custom.js" />
 
-          {/* Switcher js */}
-          <ScriptComponent src="/switcher/js/switcher.js" />
         </body>
       </Html>
     );

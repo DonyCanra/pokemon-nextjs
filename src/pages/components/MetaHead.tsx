@@ -20,8 +20,8 @@ const MetaHead: React.FC<MetaHeadProps> = ({ title, description, image, url }) =
       <meta property="og:type" content="article" />
       <meta property="og:locale" content="id_ID" />
       <meta name="twitter:card" content="List-pokemon-monster" />
-      <meta name="twitter:site" content="@nytimesbits" />
-      <meta name="twitter:creator" content="@nickbilton" />
+      <meta name="twitter:site" content="@donycanra" />
+      <meta name="twitter:creator" content="@donycanra" />
     </Head>
   );
 };

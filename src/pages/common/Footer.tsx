@@ -3,7 +3,12 @@ import Link from "next/link";
 export default function Footer() {
   return (
     <>
-      <footer className="footer">
+      <footer className="footer" style={{
+        marginLeft: 0,
+        marginRight: 0,
+        paddingLeft: 0,
+        paddingRight: 0
+      }}>
         <div className="container">
           <div className="row align-items-center flex-row-reverse">
             <div className="col-md-12 col-sm-12 text-center">

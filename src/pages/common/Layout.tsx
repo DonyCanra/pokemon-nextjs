@@ -1,12 +1,10 @@
 import React, { ReactNode } from "react";
 import Footer from "./Footer";
 import Navbar from "./Navbar";
-import Loader from "../loaders/Loader";
 
 export default function Layout({ children }: { children: ReactNode }) {
   return (
     <>
-      <Loader />
       <div className="page">
         <div className="page-main">
           {/* <!--app header--> */}
@@ -14,12 +12,9 @@ export default function Layout({ children }: { children: ReactNode }) {
           {/* <!--/app header--> */}
 
           {/* <!-- App-Content --> */}
-          <div
-            className="hor-content main-content"
-            style={{
-              marginBottom: "20px",
-            }}
-          >
+          <div className="hor-content main-content" style={{
+            marginBottom: "20px"
+          }}>
             <div className="container">{children}</div>
           </div>
           {/* <!-- End app-content--> */}
