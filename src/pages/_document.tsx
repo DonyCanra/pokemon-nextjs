@@ -17,7 +17,14 @@ class MyDocument extends Document {
           <Meta />
 
           {/* Favicon */}
-          <link rel="icon" href="/images/brand/logo.png" type="image/x-icon" />
+          <link rel="icon" href="/images/brand/faviconPokemon.png" type="image/x-icon" />
+          {/* Add alternate language links */}
+          <link rel="alternate" href="https://pokemon-list-tan.vercel.app/kr" hrefLang="kr" />
+          <link rel="alternate" href="https://pokemon-list-tan.vercel.app/en-US" hrefLang="en-US" />
+          <link rel="alternate" href="https://pokemon-list-tan.vercel.app/fr" hrefLang="fr" />
+          <link rel="alternate" href="https://pokemon-list-tan.vercel.app/nl-NL" hrefLang="nl-NL" />
+          <link rel="alternate" href="https://pokemon-list-tan.vercel.app/id-ID" hrefLang="id-ID" />
+          <link rel="alternate" href="https://pokemon-list-tan.vercel.app/" hrefLang="x-default" />
 
           {/* Bootstrap css */}
           <LinkComponent href="/plugins/bootstrap/css/bootstrap.min.css" />
