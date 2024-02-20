@@ -6,9 +6,9 @@ export default function Navbar() {
     <div className="hor-header header top-header">
       <div className="container">
         <div className="d-flex">
-          <a className="animated-arrow hor-toggle horizontal-navtoggle">
+          <Link href="/" className="animated-arrow hor-toggle horizontal-navtoggle">
             <span></span>
-          </a>
+          </Link>
           <Link className="header-brand" href="/">
             <Image src="/images/brand/logo.png" className="header-brand-img desktop-lgo" alt="Pokemon logo" width={100} height={50} />
             <Image src="/images/brand/logo.png" className="header-brand-img dark-logo" alt="Pokemon logo" width={100} height={50} />

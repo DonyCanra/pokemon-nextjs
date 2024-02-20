@@ -1,5 +1,6 @@
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
+import MetaHead from "./components/MetaHead";
 
 interface PokemonData {
   zukanId: string;
@@ -57,6 +58,13 @@ export default function Home() {
 
   return (
     <>
+      <MetaHead
+        title="Home - Pokemon website"
+        description="Pokémon list telah terbuka! Cek Pokémon favoritmu!"
+        image="https://id.portal-pokemon.com/img/common/og-image.png"
+        url="https://pokemon-list-tan.vercel.app"
+      />
+
       <div className="page-header">
         <div className="page-leftheader">
           <h4 className="page-title mb-0 text-primary">List Pokemon</h4>
@@ -81,9 +89,9 @@ export default function Home() {
                   </div>
                   <div className="col-md-6 col-sm-6 col-6 my-auto mx-auto">
                     <div className="mx-auto text-right">
-                    <div style={{ position: "relative" }}>
+                      <div style={{ position: "relative" }}>
                         <Image src={poke.fileName} alt={poke.pokemonName} width={100} height={100} />
-                      </div> 
+                      </div>
                     </div>
                   </div>
                 </div>

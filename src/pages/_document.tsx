@@ -1,5 +1,4 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
-import Meta from "./components/MetaComponent";
 import LinkComponent from "./components/LinkComponent";
 import ScriptComponent from "./components/ScriptComponent";
 
@@ -14,7 +13,7 @@ class MyDocument extends Document {
       <Html lang="en">
         <Head>
           {/* Import Meta component */}
-          <Meta />
+          <meta name="robots" content="index, follow" />
 
           {/* Favicon */}
           <link rel="icon" href="/images/brand/faviconPokemon.png" type="image/x-icon" />
