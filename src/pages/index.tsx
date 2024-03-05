@@ -108,10 +108,39 @@ export default function Home() {
                       </div>
                     </div>
                     <div className="col-md-6 col-sm-6 col-6 my-auto mx-auto">
-                      <div className="mx-auto text-right">
-                        <div style={{ position: "relative" }}>
-                          <Image src={poke.fileName} alt={poke.pokemonName} width={100} height={100} />
-                        </div>
+                      <div className="mx-auto text-right" style={{ position: "relative", width: "100px", height: "100px", right: "100px" }}>
+                        <Image
+                          src={poke.fileName}
+                          alt={poke.pokemonName}
+                          width={100}
+                          height={100}
+                          style={{
+                            position: "absolute",
+                            zIndex: 2,
+                          }}
+                        />
+                        <Image
+                          src="https://id.portal-pokemon.com//play/resources/pokedex/img/pokemon_bg.png"
+                          alt="bg_pokemon"
+                          width={100} // Ubah lebar menjadi lebih besar
+                          height={100}
+                          style={{
+                            position: "absolute",
+                            zIndex: 1,
+                            animation: "spin 4s linear infinite", // untuk membuat animasi berputar
+                          }}
+                        />
+                        <Image
+                          src="https://id.portal-pokemon.com//play/resources/pokedex/img/pokemon_circle_bg.png"
+                          alt="circle_pokemon"
+                          width={100}
+                          height={100}
+                          style={{
+                            position: "absolute",
+                            zIndex: 0,
+                            animation: "spin 4s linear infinite", // untuk membuat animasi berputar
+                          }}
+                        />
                       </div>
                     </div>
                   </div>
