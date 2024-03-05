@@ -81,20 +81,14 @@ export default function Detail() {
             <div className={getCardClassName(poke)}>
               <div className="card-body">
                 <div className="row">
-                  <div className="col-md-6 col-sm-6 col-6">
-                    <div className="">
-                      {/* <span className="fs-13 font-weight-normal">{poke?.pokemonName}</span> */}
-                      {/* <h2 className="mb-2 number-font carn1 font-weight-bold">{poke?.zukanId}</h2> */}
-                      {/* <span className="">
-                        <i className="fe fe-arrow-down-circle"></i>
-                        15%<span className="ms-1 fs-11">Loss This Attack</span>
-                      </span> */}
-                    </div>
-                  </div>
-                  <div className="col-md-6 col-sm-6 col-6 my-auto mx-auto">
+                  <div className="col-md-12 col-sm-12 col-12 my-auto mx-auto">
                     <div className="mx-auto text-right">
-                      <div style={{ position: "relative" }}>
-                        <Image src={poke?.fileName} alt={poke?.pokemonName} width={500} height={500} />
+                      <div style={{ display: "flex" }}>
+                        {pokemon.map((poke, index) => (
+                          <div key={index}>
+                            <Image src={poke.fileName} alt={poke.pokemonName} width={500} height={500} />
+                          </div>
+                        ))}
                       </div>
                     </div>
                   </div>
