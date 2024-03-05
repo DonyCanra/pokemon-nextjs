@@ -32,7 +32,6 @@ export default function Detail() {
   const router = useRouter();
 
   const poke = pokemon[0];
-  console.log(poke, "<");
 
   const { id } = router.query;
 
@@ -48,8 +47,6 @@ export default function Detail() {
       // const response = await fetch(`https://pokemon.tipsngoding.com?limit=${limit}`);
       const response = await fetch(`http://localhost:5321/${id}`);
 
-      console.log(response, "resp");
-
       const data: PokemonResponse = await response.json();
 
       setPokemon(data.data);
@@ -59,12 +56,14 @@ export default function Detail() {
       setLoading(false); // Mengatur status loading menjadi false jika terjadi kesalahan
     }
   };
+
+  const titleMetaDetail = `${poke?.pokemonName} | Pokemon website`;
   return (
     <>
-      <MetaHead title="Detail List - Pokemon website" description="Pokémon list telah terbuka! Cek Pokémon favoritmu!" image="https://id.portal-pokemon.com/img/common/og-image.png" url="https://pokemon-list-tan.vercel.app" />
+      <MetaHead title={titleMetaDetail} description="Pokémon list telah terbuka! Cek Pokémon favoritmu!" image="https://id.portal-pokemon.com/img/common/og-image.png" url="https://pokemon-list-tan.vercel.app" />
       <div className="page-header">
         <div className="page-leftheader">
-          <h4 className="page-title mb-0 text-primary">Pokemon {poke?.pokemonName}</h4>
+          <h4 className="page-title mb-0 text-primary">Evolution of {poke?.pokemonName}</h4>
         </div>
       </div>
       <div className="row">
@@ -84,7 +83,7 @@ export default function Detail() {
                   <div className="col-md-12 col-sm-12 col-12 my-auto mx-auto">
                     <div className="mx-auto text-right">
                       <div style={{ display: "flex" }}>
-                        {pokemon.map((poke, index) => (
+                        {pokemon?.map((poke, index) => (
                           <div key={index}>
                             <Image src={poke.fileName} alt={poke.pokemonName} width={500} height={500} />
                           </div>

@@ -30,34 +30,21 @@ export default function Home() {
   const [pokemon, setPokemon] = useState<PokemonData[]>([]);
   const [currentLimit, setCurrentLimit] = useState<number>(12);
   const [loading, setLoading] = useState<boolean>(false); // State untuk menangani status loading
-  const [hasFetched, setHasFetched] = useState<boolean>(false); // State untuk menangani status loading
   const router = useRouter();
 
   useEffect(() => {
-    if (!hasFetched && (pokemon.length === 0 || loading)) {
-      setLoading(true);
-      fetchPokemon(currentLimit);
-    }
-  }, [currentLimit, loading, pokemon, hasFetched]);
+    fetchPokemon(currentLimit);
+  }, [currentLimit]);
 
   const fetchPokemon = async (limit: number) => {
     try {
-      // setLoading(true); // Mengatur status loading menjadi true ketika fetch dimulai
+      setLoading(true); // Mengatur status loading menjadi true ketika fetch dimulai
       // const response = await fetch(`https://pokemon.tipsngoding.com?limit=${limit}`);
       const response = await fetch(`http://localhost:5321?limit=${limit}`);
       const data: PokemonResponse = await response.json();
 
-      if (data && data.data) {
-        setPokemon(data.data);
-        setHasFetched(true); // Set status bahwa data telah di-fetch
-        setLoading(false);
-      } else {
-        console.error("Error fetching Pokemon: Data is null");
-      }
-
-      // setPokemon(data.data);
-      // setHasFetched(true); // Set status bahwa data telah di-fetch
-      // setLoading(false); // Mengatur status loading menjadi false setelah fetch selesai
+      setPokemon(data.data);
+      setLoading(false); // Mengatur status loading menjadi false setelah fetch selesai
     } catch (error) {
       console.error("Error fetching Pokemon:", error);
       setLoading(false); // Mengatur status loading menjadi false jika terjadi kesalahan
@@ -72,9 +59,13 @@ export default function Home() {
     router.push(`/${zukanId}`);
   };
 
+  const splitPokemonTypes = (pokemonTypeId: any) => {
+    return pokemonTypeId.split(",");
+  };
+
   return (
     <>
-      <MetaHead title="Home - Pokemon website" description="Pokémon list telah terbuka! Cek Pokémon favoritmu!" image="https://id.portal-pokemon.com/img/common/og-image.png" url="https://pokemon-list-tan.vercel.app" />
+      <MetaHead title="Home | Pokemon website" description="Pokémon list telah terbuka! Cek Pokémon favoritmu!" image="https://id.portal-pokemon.com/img/common/og-image.png" url="https://pokemon-list-tan.vercel.app" />
       <div className="page-header">
         <div className="page-leftheader">
           <h4 className="page-title mb-0 text-primary">List Pokemon</h4>
@@ -101,10 +92,24 @@ export default function Home() {
                       <div className="">
                         <span className="fs-13 font-weight-normal">{poke.pokemonName}</span>
                         <h2 className="mb-2 number-font carn1 font-weight-bold">{poke.zukanId}</h2>
-                        <span className="">
+                        {/* <div
+                          className="card-body"
+                          style={{
+                            paddingLeft: 0,
+                          }}
+                        >
+                          <div className="btn-list d-flex">
+                            {splitPokemonTypes(poke.pokemonTypeId).map((type: any, index: any) => (
+                              <button type="button" className={`btn btn-svgs btn-svg-white me-1 ${getTypeButtonColor(type)}`} key={index} style={{}}>
+                                <span className="btn-svg-text">{capitalizeFirstLetter(type)}</span>
+                              </button>
+                            ))}
+                          </div>
+                        </div> */}
+                        {/* <span className="">
                           <i className="fe fe-arrow-down-circle"></i>
                           15%<span className="ms-1 fs-11">Loss This Attack</span>
-                        </span>
+                        </span> */}
                       </div>
                     </div>
                     <div className="col-md-6 col-sm-6 col-6 my-auto mx-auto">
@@ -142,6 +147,19 @@ export default function Home() {
                           }}
                         />
                       </div>
+                      <div
+                        className="card-body"
+                        style={{
+                          paddingLeft: 0,
+                        }}
+                      ></div>
+                    </div>
+                    <div className="btn-list d-flex">
+                      {splitPokemonTypes(poke.pokemonTypeId).map((type: any, index: any) => (
+                        <button type="button" className={`btn btn-svgs btn-svg-white me-1 ${getTypeButtonColor(type)}`} key={index} style={{}}>
+                          <span className="btn-svg-text">{capitalizeFirstLetter(type)}</span>
+                        </button>
+                      ))}
                     </div>
                   </div>
                 </div>
@@ -160,6 +178,10 @@ export default function Home() {
   );
 }
 
+function capitalizeFirstLetter(word: string) {
+  return word.charAt(0).toUpperCase() + word.slice(1);
+}
+
 function getCardClassName(poke: PokemonData) {
   if (poke.pokemonTypeId.includes("poison") || poke.pokemonTypeId.includes("grass") || poke.pokemonTypeId.includes("bug")) {
     return "card overflow-hidden dash1-card border-0 dash2";
@@ -176,6 +198,44 @@ function getCardClassName(poke: PokemonData) {
   }
 }
 
+function getTypeButtonColor(type: any) {
+  switch (type) {
+    case "grass":
+      return "btn-green";
+    case "poison":
+      return "btn-cyan";
+    case "fire":
+      return "btn-red";
+    case "water":
+      return "btn-azure";
+    case "ice":
+      return "btn-blue";
+    case "rock":
+    case "ground":
+      return "btn-gray";
+    case "bug":
+      return "btn-lime";
+    case "flying":
+      return "btn-vimeo";
+    case "electric":
+      return "btn-orange";
+    case "dark":
+    case "ghost":
+      return "btn-dark";
+    case "psychic":
+      return "btn-yellow";
+    case "fairy":
+      return "btn-pink";
+    case "steel":
+      return "btn-primary";
+    case "dragon":
+      return "btn-secondary";
+    case "fighting":
+      return "btn-teal";
+    default:
+      return "btn-white"; // Default color
+  }
+}
 // function convertToPascalCase(key: string): string {
 //   return key.replace(/_([a-z])/g, (_, group1) => group1.toUpperCase());
 // }
