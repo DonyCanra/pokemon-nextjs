@@ -2,6 +2,7 @@ import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import MetaHead from "./components/MetaHead";
 import Loader from "./loaders/Loader";
+import { useRouter } from "next/router";
 
 interface PokemonData {
   zukanId: string;
@@ -29,6 +30,7 @@ export default function Home() {
   const [pokemon, setPokemon] = useState<PokemonData[]>([]);
   const [currentLimit, setCurrentLimit] = useState<number>(12);
   const [loading, setLoading] = useState<boolean>(false); // State untuk menangani status loading
+  const router = useRouter();
 
   useEffect(() => {
     fetchPokemon(currentLimit);
@@ -37,19 +39,11 @@ export default function Home() {
   const fetchPokemon = async (limit: number) => {
     try {
       setLoading(true); // Mengatur status loading menjadi true ketika fetch dimulai
-      const response = await fetch(`https://pokemon.tipsngoding.com?limit=${limit}`);
+      // const response = await fetch(`https://pokemon.tipsngoding.com?limit=${limit}`);
+      const response = await fetch(`http://localhost:5321?limit=${limit}`);
       const data: PokemonResponse = await response.json();
-      const updatedData = data.data.map((item: PokemonData) => {
-        const updatedItem: any = {}; // Gunakan Partial<PokemonData> di sini
-        for (const key in item) {
-          if (Object.prototype.hasOwnProperty.call(item, key)) {
-            const typedKey = key as keyof PokemonData;
-            updatedItem[convertToPascalCase(typedKey)] = item[typedKey];
-          }
-        }
-        return updatedItem as PokemonData;
-      });
-      setPokemon(updatedData);
+
+      setPokemon(data.data);
       setLoading(false); // Mengatur status loading menjadi false setelah fetch selesai
     } catch (error) {
       console.error("Error fetching Pokemon:", error);
@@ -59,6 +53,10 @@ export default function Home() {
 
   const handleLoadMore = () => {
     setCurrentLimit((prevLimit) => prevLimit + 20);
+  };
+
+  const moveToDetailPage = (zukanId: string) => {
+    router.push(`/${zukanId}`);
   };
 
   return (
@@ -76,7 +74,14 @@ export default function Home() {
         ) : (
           pokemon.map((poke, index) => (
             <div key={index} className="col-xl-3 col-lg-6 col-md-6 col-xm-12">
-              <div key={index} className={getCardClassName(poke)}>
+              <div
+                key={index}
+                className={getCardClassName(poke)}
+                onClick={() => moveToDetailPage(poke.zukanId)}
+                style={{
+                  cursor: "pointer",
+                }}
+              >
                 <div className="card-body">
                   <div className="row">
                     <div className="col-md-6 col-sm-6 col-6">
@@ -129,6 +134,6 @@ function getCardClassName(poke: PokemonData) {
   }
 }
 
-function convertToPascalCase(key: string): string {
-  return key.replace(/_([a-z])/g, (_, group1) => group1.toUpperCase());
-}
+// function convertToPascalCase(key: string): string {
+//   return key.replace(/_([a-z])/g, (_, group1) => group1.toUpperCase());
+// }
