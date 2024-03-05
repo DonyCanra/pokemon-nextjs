@@ -30,21 +30,34 @@ export default function Home() {
   const [pokemon, setPokemon] = useState<PokemonData[]>([]);
   const [currentLimit, setCurrentLimit] = useState<number>(12);
   const [loading, setLoading] = useState<boolean>(false); // State untuk menangani status loading
+  const [hasFetched, setHasFetched] = useState<boolean>(false); // State untuk menangani status loading
   const router = useRouter();
 
   useEffect(() => {
-    fetchPokemon(currentLimit);
-  }, [currentLimit]);
+    if (!hasFetched && (pokemon.length === 0 || loading)) {
+      setLoading(true);
+      fetchPokemon(currentLimit);
+    }
+  }, [currentLimit, loading, pokemon, hasFetched]);
 
   const fetchPokemon = async (limit: number) => {
     try {
-      setLoading(true); // Mengatur status loading menjadi true ketika fetch dimulai
+      // setLoading(true); // Mengatur status loading menjadi true ketika fetch dimulai
       // const response = await fetch(`https://pokemon.tipsngoding.com?limit=${limit}`);
       const response = await fetch(`http://localhost:5321?limit=${limit}`);
       const data: PokemonResponse = await response.json();
 
-      setPokemon(data.data);
-      setLoading(false); // Mengatur status loading menjadi false setelah fetch selesai
+      if (data && data.data) {
+        setPokemon(data.data);
+        setHasFetched(true); // Set status bahwa data telah di-fetch
+        setLoading(false);
+      } else {
+        console.error("Error fetching Pokemon: Data is null");
+      }
+
+      // setPokemon(data.data);
+      // setHasFetched(true); // Set status bahwa data telah di-fetch
+      // setLoading(false); // Mengatur status loading menjadi false setelah fetch selesai
     } catch (error) {
       console.error("Error fetching Pokemon:", error);
       setLoading(false); // Mengatur status loading menjadi false jika terjadi kesalahan
