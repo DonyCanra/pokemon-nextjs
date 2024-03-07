@@ -15,7 +15,7 @@ export default function Navbar() {
             <Image src="/images/brand/logo.png" className="header-brand-img mobile-logo" alt="Pokemon logo" width={100} height={50} />
             <Image src="/images/brand/logo.png" className="header-brand-img darkmobile-logo" alt="Pokemon logo" width={100} height={50} />
           </Link>
-          <div className="mt-1 d-md-block d-none">
+          {/* <div className="mt-1 d-md-block d-none">
             <form className="form-inline">
               <div className="search-element">
                 <input type="search" className="form-control header-search mobile-view-search" placeholder="Search pokemon" aria-label="Search" tab-index="1" />
@@ -26,7 +26,7 @@ export default function Navbar() {
                 </button>
               </div>
             </form>
-          </div>
+          </div> */}
           {/* <!-- SEARCH --> */}
           <div className="d-flex order-lg-2 ms-auto main-header-end">
             <button

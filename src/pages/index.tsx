@@ -38,7 +38,7 @@ export default function Home() {
 
   const fetchPokemon = async (limit: number) => {
     try {
-      setLoading(true); // Mengatur status loading menjadi true ketika fetch dimulai
+      // setLoading(true); // Mengatur status loading menjadi true ketika fetch dimulai
       // const response = await fetch(`https://pokemon.tipsngoding.com?limit=${limit}`);
       const response = await fetch(`http://localhost:5321?limit=${limit}`);
       const data: PokemonResponse = await response.json();
@@ -92,24 +92,6 @@ export default function Home() {
                       <div className="">
                         <span className="fs-13 font-weight-normal">{poke.pokemonName}</span>
                         <h2 className="mb-2 number-font carn1 font-weight-bold">{poke.zukanId}</h2>
-                        {/* <div
-                          className="card-body"
-                          style={{
-                            paddingLeft: 0,
-                          }}
-                        >
-                          <div className="btn-list d-flex">
-                            {splitPokemonTypes(poke.pokemonTypeId).map((type: any, index: any) => (
-                              <button type="button" className={`btn btn-svgs btn-svg-white me-1 ${getTypeButtonColor(type)}`} key={index} style={{}}>
-                                <span className="btn-svg-text">{capitalizeFirstLetter(type)}</span>
-                              </button>
-                            ))}
-                          </div>
-                        </div> */}
-                        {/* <span className="">
-                          <i className="fe fe-arrow-down-circle"></i>
-                          15%<span className="ms-1 fs-11">Loss This Attack</span>
-                        </span> */}
                       </div>
                     </div>
                     <div className="col-md-6 col-sm-6 col-6 my-auto mx-auto">
@@ -117,11 +99,22 @@ export default function Home() {
                         <Image
                           src={poke.fileName}
                           alt={poke.pokemonName}
+                          width={200}
+                          height={200}
+                          style={{
+                            position: "absolute",
+                            zIndex: 2,
+                          }}
+                        />
+                        <Image
+                          src="https://i.pinimg.com/originals/43/ed/d5/43edd5aa5f0de7f410f5e38326f4b94c.png"
+                          alt="circle_pokemon"
                           width={100}
                           height={100}
                           style={{
                             position: "absolute",
-                            zIndex: 2,
+                            zIndex: 1,
+                            // animation: "spin 4s linear infinite",
                           }}
                         />
                         <Image
@@ -131,19 +124,8 @@ export default function Home() {
                           height={100}
                           style={{
                             position: "absolute",
-                            zIndex: 1,
-                            animation: "spin 4s linear infinite", // untuk membuat animasi berputar
-                          }}
-                        />
-                        <Image
-                          src="https://id.portal-pokemon.com//play/resources/pokedex/img/pokemon_circle_bg.png"
-                          alt="circle_pokemon"
-                          width={100}
-                          height={100}
-                          style={{
-                            position: "absolute",
                             zIndex: 0,
-                            animation: "spin 4s linear infinite", // untuk membuat animasi berputar
+                            animation: "spin 4s linear infinite",
                           }}
                         />
                       </div>
