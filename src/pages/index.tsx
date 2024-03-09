@@ -66,11 +66,21 @@ export default function Home() {
   return (
     <>
       <MetaHead title="Home | Pokemon website" description="Pokémon list telah terbuka! Cek Pokémon favoritmu!" image="https://id.portal-pokemon.com/img/common/og-image.png" url="https://pokemon-list-tan.vercel.app" />
+      {/* <CarouselComponent/> */}
       <div className="page-header">
         <div className="page-leftheader">
           <h4 className="page-title mb-0 text-primary">List Pokemon</h4>
         </div>
       </div>
+      {/* <div className="page-header" style={{
+        height: "500px",
+        paddingLeft: 0,
+        paddingRight: 0,
+        marginLeft: 0,
+        marginRight: 0
+      }}>
+        <ExampleCarousel />
+      </div> */}
 
       <div className="row">
         {loading ? (

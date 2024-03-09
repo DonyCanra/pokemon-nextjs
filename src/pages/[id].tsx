@@ -86,6 +86,12 @@ export default function Detail() {
                         {pokemon?.map((poke, index) => (
                           <div key={index}>
                             <Image src={poke.fileName} alt={poke.pokemonName} width={500} height={500} />
+                            <h6 className="fs-25 font-weight-normal" style={{
+                              textAlign: "center",
+                              marginTop: 0,
+                              paddingTop: 0,
+                              // background: "red"
+                            }}>{poke.pokemonName}</h6>
                           </div>
                         ))}
                       </div>
@@ -102,8 +108,6 @@ export default function Detail() {
 }
 
 function getCardClassName(poke: PokemonData) {
-  console.log(poke, "poke");
-
   if (poke?.pokemonTypeId.includes("poison") || poke?.pokemonTypeId.includes("grass") || poke?.pokemonTypeId.includes("bug")) {
     return "card overflow-hidden dash1-card border-0 dash2";
   } else if (poke?.pokemonTypeId.includes("fire") || poke?.pokemonTypeId.includes("electric")) {

@@ -3,7 +3,10 @@ import Image from "next/image";
 
 export default function Navbar() {
   return (
-    <div className="hor-header header top-header">
+    <div className="hor-header header top-header" style={{
+      background: "orange",
+      borderBottom: "2px solid black",
+    }}>
       <div className="container">
         <div className="d-flex">
           <Link href="/" className="animated-arrow hor-toggle horizontal-navtoggle">
@@ -61,7 +64,7 @@ export default function Navbar() {
                     </div>
                   </div>
 
-                  <div className="dropdown profile-dropdown d-flex">
+                  {/* <div className="dropdown profile-dropdown d-flex">
                     <a href="/" className="nav-link pe-0 leading-none" data-bs-toggle="dropdown">
                       <span className="header-avatar1">
                         <Image src="/images/users/2.jpg" alt="img" className="avatar avatar-md brround" width={100} height={50} />
@@ -85,7 +88,7 @@ export default function Navbar() {
                         <div className="fs-13">Sign Out</div>
                       </Link>
                     </div>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>
