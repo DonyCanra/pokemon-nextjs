@@ -45,7 +45,7 @@ export default function Detail() {
     try {
       setLoading(true); // Mengatur status loading menjadi true ketika fetch dimulai
       // const response = await fetch(`https://pokemon.tipsngoding.com?limit=${limit}`);
-      const response = await fetch(`http://localhost:5321/${id}`);
+      const response = await fetch(`https://pokemon-express-typescript-cc8sc0uki-donycanras-projects.vercel.app/${id}`);
 
       const data: PokemonResponse = await response.json();
 

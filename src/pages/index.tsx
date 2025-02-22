@@ -40,7 +40,7 @@ export default function Home() {
     try {
       // setLoading(true); // Mengatur status loading menjadi true ketika fetch dimulai
       // const response = await fetch(`https://pokemon.tipsngoding.com?limit=${limit}`);
-      const response = await fetch(`http://localhost:5321?limit=${limit}`);
+      const response = await fetch(`https://pokemon-express-typescript-cc8sc0uki-donycanras-projects.vercel.app/?limit=${limit}`);
       const data: PokemonResponse = await response.json();
 
       setPokemon(data.data);

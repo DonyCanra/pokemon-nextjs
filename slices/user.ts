@@ -4,7 +4,7 @@ export const fetchUsers = createAsyncThunk(
   "users/getAllUsers",
   async (thunkApi) => {
     const response = await fetch(
-      "http://localhost:5321?limit=20"
+      "https://pokemon-express-typescript-cc8sc0uki-donycanras-projects.vercel.app/?limit=20"
     );
     const data = await response.json();
     return data;
