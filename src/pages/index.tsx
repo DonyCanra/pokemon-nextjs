@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import MetaHead from "./components/MetaHead";
 import Loader from "./loaders/Loader";
 import { useRouter } from "next/router";
+import BaseApi from "../constants";
 
 interface PokemonData {
   zukanId: string;
@@ -40,7 +41,7 @@ export default function Home() {
     try {
       // setLoading(true); // Mengatur status loading menjadi true ketika fetch dimulai
       // const response = await fetch(`https://pokemon.tipsngoding.com?limit=${limit}`);
-      const response = await fetch(`http://localhost:5321?limit=${limit}`);
+      const response = await fetch(`${BaseApi}?limit=${limit}`);
       const data: PokemonResponse = await response.json();
 
       setPokemon(data.data);

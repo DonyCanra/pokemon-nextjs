@@ -3,6 +3,7 @@ import MetaHead from "./components/MetaHead";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import Loader from "./loaders/Loader";
+import BaseApi from "../constants";
 
 interface PokemonData {
   zukanId: string;
@@ -45,7 +46,7 @@ export default function Detail() {
     try {
       setLoading(true); // Mengatur status loading menjadi true ketika fetch dimulai
       // const response = await fetch(`https://pokemon.tipsngoding.com?limit=${limit}`);
-      const response = await fetch(`http://localhost:5321/${id}`);
+      const response = await fetch(`${BaseApi}/${id}`);
 
       const data: PokemonResponse = await response.json();
 
@@ -86,12 +87,17 @@ export default function Detail() {
                         {pokemon?.map((poke, index) => (
                           <div key={index}>
                             <Image src={poke.fileName} alt={poke.pokemonName} width={500} height={500} />
-                            <h6 className="fs-25 font-weight-normal" style={{
-                              textAlign: "center",
-                              marginTop: 0,
-                              paddingTop: 0,
-                              // background: "red"
-                            }}>{poke.pokemonName}</h6>
+                            <h6
+                              className="fs-25 font-weight-normal"
+                              style={{
+                                textAlign: "center",
+                                marginTop: 0,
+                                paddingTop: 0,
+                                // background: "red"
+                              }}
+                            >
+                              {poke.pokemonName}
+                            </h6>
                           </div>
                         ))}
                       </div>

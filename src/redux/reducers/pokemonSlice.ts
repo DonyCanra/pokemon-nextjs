@@ -1,5 +1,16 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { PokemonData } from '../types'; // Pastikan untuk mengimpor tipe PokemonData dari file yang tepat
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+
+interface PokemonData {
+  zukanId: string;
+  zukanSubId: number;
+  pokemonName: string;
+  pokemonSubName: string;
+  weight: number;
+  height: number;
+  fileName: string;
+  pokemonTypeId: string;
+  pokemonTypeName: string;
+}
 
 interface PokemonState {
   data: PokemonData[];
@@ -14,7 +25,7 @@ const initialState: PokemonState = {
 };
 
 const pokemonSlice = createSlice({
-  name: 'pokemon',
+  name: "pokemon",
   initialState,
   reducers: {
     fetchPokemonStart(state) {
