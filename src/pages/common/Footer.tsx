@@ -2,23 +2,22 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <>
-      <footer className="footer" style={{
-        marginLeft: 0,
-        marginRight: 0,
-        paddingLeft: 0,
-        paddingRight: 0
-      }}>
-        <div className="container">
-          <div className="row align-items-center flex-row-reverse">
-            <div className="col-md-12 col-sm-12 text-center">
-              <p>
-              Copyright © 2023 <Link href="/">Pokemon</Link>. Designed by <Link href="/"> DonyCanra </Link> All rights reserved
-              </p>
-            </div>
-          </div>
+    <footer className="w-full bg-gray-100 py-4">
+      <div className="container mx-auto px-4">
+        <div className="flex justify-center">
+          <p className="text-gray-500 text-sm text-center">
+            © {new Date().getFullYear()}{" "}
+            <Link href="/" className="text-blue-500 hover:underline">
+              Pokemon
+            </Link>
+            . Designed by{" "}
+            <Link href="https://example.com" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">
+              DonyCanra
+            </Link>
+            . All rights reserved.
+          </p>
         </div>
-      </footer>
-    </>
+      </div>
+    </footer>
   );
 }
