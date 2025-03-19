@@ -3,10 +3,13 @@ import Image from "next/image";
 
 export default function Navbar() {
   return (
-    <div className="hor-header header top-header" style={{
-      background: "orange",
-      borderBottom: "2px solid black",
-    }}>
+    <div
+      className="hor-header header top-header"
+      style={{
+        background: "orange",
+        borderBottom: "2px solid black",
+      }}
+    >
       <div className="container">
         <div className="d-flex">
           <Link href="/" className="animated-arrow hor-toggle horizontal-navtoggle">
@@ -63,32 +66,6 @@ export default function Navbar() {
                       </div>
                     </div>
                   </div>
-
-                  {/* <div className="dropdown profile-dropdown d-flex">
-                    <a href="/" className="nav-link pe-0 leading-none" data-bs-toggle="dropdown">
-                      <span className="header-avatar1">
-                        <Image src="/images/users/2.jpg" alt="img" className="avatar avatar-md brround" width={100} height={50} />
-                      </span>
-                    </a>
-                    <div className="dropdown-menu dropdown-menu-end dropdown-menu-arrow animated">
-                      <div className="text-center">
-                        <div className="text-center user pb-0 font-weight-bold">Dony Canra</div>
-                        <span className="text-center user-semi-title">Web Designer</span>
-                        <div className="dropdown-divider"></div>
-                      </div>
-                      <Link className="dropdown-item d-flex" href="/">
-                        <svg className="header-icon me-2" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24" viewBox="0 0 24 24" width="24">
-                          <g>
-                            <rect fill="none" height="24" width="24" />
-                          </g>
-                          <g>
-                            <path d="M11,7L9.6,8.4l2.6,2.6H2v2h10.2l-2.6,2.6L11,17l5-5L11,7z M20,19h-8v2h8c1.1,0,2-0.9,2-2V5c0-1.1-0.9-2-2-2h-8v2h8V19z" />
-                          </g>
-                        </svg>
-                        <div className="fs-13">Sign Out</div>
-                      </Link>
-                    </div>
-                  </div> */}
                 </div>
               </div>
             </div>

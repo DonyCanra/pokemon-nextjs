@@ -4,32 +4,11 @@ import { useRouter } from "next/router";
 import Image from "next/image";
 import Loader from "./loaders/Loader";
 import BaseApi from "../constants";
-
-interface PokemonData {
-  zukanId: string;
-  zukanSubId: number;
-  pokemonName: string;
-  pokemonSubName: string;
-  weight: number;
-  height: number;
-  fileName: string;
-  pokemonTypeId: string;
-  pokemonTypeName: string;
-}
-
-interface PokemonResponse {
-  status: boolean;
-  error: any;
-  data: PokemonData[];
-  meta: {
-    limit: string;
-    page: string;
-  };
-}
+import { PokemonData, PokemonResponse } from "@/types/Pokemon";
 
 export default function Detail() {
   const [pokemon, setPokemon] = useState<PokemonData[]>([]);
-  const [loading, setLoading] = useState<boolean>(false); // State untuk menangani status loading
+  const [loading, setLoading] = useState<boolean>(false);
   const router = useRouter();
 
   const poke = pokemon[0];
@@ -44,17 +23,16 @@ export default function Detail() {
 
   const fetchPokemonDetail = async (id: string) => {
     try {
-      setLoading(true); // Mengatur status loading menjadi true ketika fetch dimulai
-      // const response = await fetch(`https://pokemon.tipsngoding.com?limit=${limit}`);
+      setLoading(true);
       const response = await fetch(`${BaseApi}/${id}`);
 
       const data: PokemonResponse = await response.json();
 
       setPokemon(data.data);
-      setLoading(false); // Mengatur status loading menjadi false setelah fetch selesai
+      setLoading(false);
     } catch (error) {
       console.error("Error fetching Pokemon:", error);
-      setLoading(false); // Mengatur status loading menjadi false jika terjadi kesalahan
+      setLoading(false);
     }
   };
 

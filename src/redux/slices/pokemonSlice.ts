@@ -1,22 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-
-interface PokemonData {
-  zukanId: string;
-  zukanSubId: number;
-  pokemonName: string;
-  pokemonSubName: string;
-  weight: number;
-  height: number;
-  fileName: string;
-  pokemonTypeId: string;
-  pokemonTypeName: string;
-}
-
-interface PokemonState {
-  data: PokemonData[];
-  loading: boolean;
-  error: string | null;
-}
+import { PokemonData, PokemonState } from "@/types/Pokemon";
 
 const initialState: PokemonState = {
   data: [],

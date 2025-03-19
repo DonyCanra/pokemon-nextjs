@@ -4,28 +4,7 @@ import MetaHead from "./components/MetaHead";
 import Loader from "./loaders/Loader";
 import { useRouter } from "next/router";
 import BaseApi from "../constants";
-
-interface PokemonData {
-  zukanId: string;
-  zukanSubId: number;
-  pokemonName: string;
-  pokemonSubName: string;
-  weight: number;
-  height: number;
-  fileName: string;
-  pokemonTypeId: string;
-  pokemonTypeName: string;
-}
-
-interface PokemonResponse {
-  status: boolean;
-  error: any;
-  data: PokemonData[];
-  meta: {
-    limit: string;
-    page: string;
-  };
-}
+import { PokemonData, PokemonResponse } from "@/types/Pokemon";
 
 export default function Home() {
   const [pokemon, setPokemon] = useState<PokemonData[]>([]);

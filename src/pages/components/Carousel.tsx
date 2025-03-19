@@ -1,6 +1,7 @@
-import React from 'react';
+import React from "react";
+import Image from "next/image";
 
-function CarouselComponent() {
+const CarouselComponent: React.FC = () => {
   return (
     <section className="jumbotron">
       <div id="gallery" className="carousel slide" data-bs-ride="carousel">
@@ -8,27 +9,15 @@ function CarouselComponent() {
         <div className="carousel-inner">
           {/* Item 1 */}
           <div className="carousel-item active">
-            <img
-              src="https://wallpaperaccess.com/full/463588.jpg"
-              className="d-block w-100"
-              alt=""
-            />
+            <Image src="https://wallpaperaccess.com/full/463588.jpg" alt="Slide 1" layout="responsive" width={1920} height={1080} priority />
           </div>
           {/* Item 2 */}
           <div className="carousel-item">
-            <img
-              src="https://mktg-assets.tcgplayer.com/web/promo/2023-06/YGO_BLMR-Most-Expensive_0629_ygo_marketplace-search_desktop.jpg"
-              className="d-block w-100"
-              alt=""
-            />
+            <Image src="https://mktg-assets.tcgplayer.com/web/promo/2023-06/YGO_BLMR-Most-Expensive_0629_ygo_marketplace-search_desktop.jpg" alt="Slide 2" layout="responsive" width={1920} height={1080} />
           </div>
           {/* Item 3 */}
           <div className="carousel-item">
-            <img
-              src="https://wallpaperaccess.com/full/5721804.jpg"
-              className="d-block w-100"
-              alt=""
-            />
+            <Image src="https://wallpaperaccess.com/full/5721804.jpg" alt="Slide 3" layout="responsive" width={1920} height={1080} />
           </div>
         </div>
         {/* Slider controls */}
@@ -41,9 +30,8 @@ function CarouselComponent() {
           <span className="visually-hidden">Next</span>
         </button>
       </div>
-
     </section>
   );
-}
+};
 
 export default CarouselComponent;
